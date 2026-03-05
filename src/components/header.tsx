@@ -7,6 +7,7 @@ import { Menu, X } from 'lucide-react';
 import { site } from '@/lib/site';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import { CalendlyButton } from '@/components/calendly-button';
 
 export function Header() {
   const pathname = usePathname();
@@ -49,9 +50,7 @@ export function Header() {
           <Button variant="ghost" size="sm" asChild>
             <Link href="/contact?type=quote">Request a Quote</Link>
           </Button>
-          <Button size="sm" asChild>
-            <Link href="/contact">Schedule a Consultation</Link>
-          </Button>
+          <CalendlyButton className="h-9 px-4" />
         </div>
 
         {/* Mobile Menu Button */}
@@ -92,9 +91,7 @@ export function Header() {
               <Button variant="outline" asChild>
                 <Link href="/contact?type=quote">Request a Quote</Link>
               </Button>
-              <Button asChild>
-                <Link href="/contact">Schedule a Consultation</Link>
-              </Button>
+              <CalendlyButton />
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { CalendlyButton } from '@/components/calendly-button';
 import { site } from '@/lib/site';
 
 export function Hero() {
@@ -33,12 +33,7 @@ export function Hero() {
 
           {/* CTAs */}
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button size="lg" asChild>
-              <Link href="/contact">
-                Schedule a Consultation
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
+            <CalendlyButton />
             <Button variant="outline" size="lg" asChild>
               <Link href="/work">View Our Work</Link>
             </Button>
