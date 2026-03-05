@@ -35,7 +35,7 @@ export function Hero() {
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button size="lg" asChild>
               <Link href="/contact">
-                Schedule a Consultation with us
+                Schedule a Consultation
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
