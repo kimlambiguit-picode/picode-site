@@ -4,6 +4,7 @@ import './globals.css';
 import { site } from '@/lib/site';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
+import { BackgroundEffects } from '@/components/background-effects';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -74,6 +75,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} font-sans`}>
+        <BackgroundEffects />
         <div className="relative flex min-h-screen flex-col">
           <Header />
           <main className="flex-1">{children}</main>
