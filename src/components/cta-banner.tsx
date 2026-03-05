@@ -1,12 +1,10 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { CalendlyButton } from '@/components/calendly-button';
 
 interface CTABannerProps {
   title?: string;
   description?: string;
-  useCalendly?: boolean;
   primaryCTA?: {
     text: string;
     href: string;
@@ -20,9 +18,8 @@ interface CTABannerProps {
 export function CTABanner({
   title = 'Ready to build something great?',
   description = "Let's discuss your project and see how we can help you achieve your goals.",
-  useCalendly = true,
-  primaryCTA = { text: 'Schedule a Consultation', href: '/contact' },
-  secondaryCTA = { text: 'Request a Quote', href: '/contact?type=quote' },
+  primaryCTA = { text: 'Get in Touch', href: '/contact' },
+  secondaryCTA = { text: 'View Our Work', href: '/work' },
 }: CTABannerProps) {
   return (
     <section className="relative overflow-hidden border-t border-border">
@@ -37,16 +34,12 @@ export function CTABanner({
           <p className="mt-4 text-lg text-muted-foreground">{description}</p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            {useCalendly ? (
-              <CalendlyButton text={primaryCTA.text} />
-            ) : (
-              <Button size="lg" asChild>
-                <Link href={primaryCTA.href}>
-                  {primaryCTA.text}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            )}
+            <Button size="lg" asChild>
+              <Link href={primaryCTA.href}>
+                {primaryCTA.text}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
             <Button variant="outline" size="lg" asChild>
               <Link href={secondaryCTA.href}>{secondaryCTA.text}</Link>
             </Button>

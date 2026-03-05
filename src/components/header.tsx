@@ -7,7 +7,6 @@ import { Menu, X } from 'lucide-react';
 import { site } from '@/lib/site';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { CalendlyButton } from '@/components/calendly-button';
 
 export function Header() {
   const pathname = usePathname();
@@ -47,10 +46,9 @@ export function Header() {
 
         {/* Desktop CTA */}
         <div className="hidden items-center gap-3 md:flex">
-          <Button variant="ghost" size="sm" asChild>
-            <Link href="/contact?type=quote">Request a Quote</Link>
+          <Button size="sm" asChild>
+            <Link href="/contact">Get in Touch</Link>
           </Button>
-          <CalendlyButton className="h-9 px-4" />
         </div>
 
         {/* Mobile Menu Button */}
@@ -87,11 +85,10 @@ export function Header() {
                 {item.name}
               </Link>
             ))}
-            <div className="flex flex-col gap-2 pt-4">
-              <Button variant="outline" asChild>
-                <Link href="/contact?type=quote">Request a Quote</Link>
+            <div className="pt-4">
+              <Button className="w-full" asChild>
+                <Link href="/contact">Get in Touch</Link>
               </Button>
-              <CalendlyButton />
             </div>
           </div>
         </div>

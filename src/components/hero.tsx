@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { CalendlyButton } from '@/components/calendly-button';
 import { site } from '@/lib/site';
 
 export function Hero() {
@@ -33,7 +32,9 @@ export function Hero() {
 
           {/* CTAs */}
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <CalendlyButton />
+            <Button size="lg" asChild>
+              <Link href="/contact">Get Started</Link>
+            </Button>
             <Button variant="outline" size="lg" asChild>
               <Link href="/work">View Our Work</Link>
             </Button>
