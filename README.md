@@ -1,67 +1,79 @@
-# PiCode Solutions Marketing Website
+# PiCode Solutions Website
 
-Welcome to the PiCode Solutions marketing website project! This project is built using Next.js and Tailwind CSS, providing a modern and responsive web experience.
+Premium marketing website for PiCode Solutions built with Next.js 14, TypeScript, Tailwind CSS, and shadcn/ui.
 
-## Project Structure
+## Tech Stack
 
-The project is organized as follows:
-
-```
-picode-solutions
-├── src
-│   ├── app
-│   │   ├── layout.tsx         # Root layout of the application
-│   │   ├── page.tsx           # Home page of the website
-│   │   └── globals.css        # Global styles including Tailwind CSS
-│   ├── components
-│   │   ├── header.tsx         # Header component with navigation
-│   │   └── footer.tsx         # Footer component with copyright and links
-│   └── lib
-│       └── site.ts            # Configuration object for marketing content
-├── public                      # Static assets (images, icons, etc.)
-├── package.json                # npm configuration file
-├── tsconfig.json              # TypeScript configuration file
-├── next.config.js             # Next.js configuration file
-├── tailwind.config.js         # Tailwind CSS configuration file
-├── postcss.config.js          # PostCSS configuration file
-└── README.md                  # Project documentation
-```
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Components**: shadcn/ui + Radix UI
+- **Icons**: Lucide React
+- **Blog**: MDX
 
 ## Getting Started
 
-To get started with the project, follow these steps:
+```bash
+# Install dependencies
+npm install
 
-1. **Clone the repository:**
-   ```
-   git clone <repository-url>
-   cd picode-solutions
-   ```
+# Run development server
+npm run dev
 
-2. **Install dependencies:**
-   ```
-   npm install
-   ```
+# Build for production
+npm run build
 
-3. **Run the development server:**
-   ```
-   npm run dev
-   ```
+# Start production server
+npm start
+```
 
-4. **Open your browser and navigate to:**
-   ```
-   http://localhost:3000
-   ```
+## Project Structure
 
-## Features
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── (marketing)/        # Marketing pages group
+│   ├── api/                # API routes
+│   └── layout.tsx          # Root layout
+├── components/
+│   ├── ui/                 # shadcn/ui primitives
+│   └── ...                 # Feature components
+├── lib/
+│   ├── site.ts             # Site configuration (edit content here)
+│   └── utils.ts            # Utility functions
+└── content/
+    └── blog/               # MDX blog posts
+```
 
-- Responsive design using Tailwind CSS
-- Dynamic content management through the `src/lib/site.ts` configuration
-- Modular components for easy maintenance and scalability
+## Content Management
 
-## Contributing
+All site content is centralized in `src/lib/site.ts`. Edit this file to update:
 
-Contributions are welcome! Please open an issue or submit a pull request for any enhancements or bug fixes.
+- Company information
+- Services
+- Case studies
+- Testimonials
+- FAQs
+- Contact details
+- Social links
+
+## Design System
+
+- **Dark mode by default** with deep tech blue accent
+- Consistent spacing using Tailwind's spacing scale
+- Typography: Inter font with clear hierarchy
+- Components follow shadcn/ui patterns
+
+## Pages
+
+1. **Home** - Premium agency landing page
+2. **Services** - Detailed service offerings
+3. **Work** - Case study showcase
+4. **About** - Company story
+5. **Blog** - MDX-powered articles
+6. **Contact** - Contact form
+7. **Legal** - Privacy Policy & Terms
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+MIT

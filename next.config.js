@@ -1,10 +1,14 @@
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   images: {
-    domains: ['example.com'], // Replace with your image domains
-  },
-  env: {
-    API_URL: process.env.API_URL, // Example of using environment variables
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
 };
+
+module.exports = nextConfig;
