@@ -1,18 +1,18 @@
 'use client';
 
 import * as React from 'react';
-import { Mail, MapPin, Phone, Send } from 'lucide-react';
+import { Calendar, FileText, Mail, MapPin, Phone, Send } from 'lucide-react';
 import { site } from '@/lib/site';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Section, SectionHeader, SectionTitle, SectionDescription } from '@/components/section';
+import { CalendlyButton } from '@/components/calendly-button';
 
 interface FormData {
   name: string;
   email: string;
   company: string;
   message: string;
-  type: 'consultation' | 'quote';
 }
 
 interface FormErrors {
@@ -27,18 +27,10 @@ export default function ContactPage() {
     email: '',
     company: '',
     message: '',
-    type: 'consultation',
   });
   const [errors, setErrors] = React.useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [isSubmitted, setIsSubmitted] = React.useState(false);
-
-  React.useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('type') === 'quote') {
-      setFormData((prev) => ({ ...prev, type: 'quote' }));
-    }
-  }, []);
 
   const validate = (): boolean => {
     const newErrors: FormErrors = {};
@@ -72,7 +64,7 @@ export default function ContactPage() {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, type: 'Quote Request' }),
       });
 
       if (response.ok) {
@@ -86,7 +78,7 @@ export default function ContactPage() {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -102,10 +94,9 @@ export default function ContactPage() {
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
             <Send className="h-8 w-8" />
           </div>
-          <h1 className="mt-6 text-3xl font-semibold">Message Sent</h1>
+          <h1 className="mt-6 text-3xl font-semibold">Quote Request Received</h1>
           <p className="mt-4 text-muted-foreground">
-            Thank you for reaching out. We&apos;ll get back to you within 1-2
-            business days.
+            Thank you for reaching out. We&apos;ll review your project details and get back to you with a quote within 1-2 business days.
           </p>
         </div>
       </Section>
@@ -113,70 +104,122 @@ export default function ContactPage() {
   }
 
   return (
-    <Section className="section-lg">
-      <SectionHeader>
-        <SectionTitle>Get in Touch</SectionTitle>
-        <SectionDescription>
-          Ready to discuss your project? Fill out the form below or reach out
-          directly.
-        </SectionDescription>
-      </SectionHeader>
+    <>
+      {/* Hero Section with Two CTAs */}
+      <Section className="section">
+        <SectionHeader>
+          <SectionTitle>Get in Touch</SectionTitle>
+          <SectionDescription>
+            Ready to start your project? Choose how you&apos;d like to connect with us.
+          </SectionDescription>
+        </SectionHeader>
 
-      <div className="mx-auto mt-16 grid max-w-5xl gap-12 lg:grid-cols-3">
-        {/* Contact Info */}
-        <div className="space-y-6">
-          <Card>
-            <CardHeader className="pb-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                <Mail className="h-5 w-5" />
+        <div className="mx-auto mt-12 grid max-w-3xl gap-6 sm:grid-cols-2">
+          {/* Schedule Consultation Card */}
+          <Card className="relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
+            <CardHeader className="relative">
+              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <Calendar className="h-6 w-6" />
               </div>
-              <CardTitle className="text-base">Email</CardTitle>
+              <CardTitle className="mt-4">Schedule a Consultation</CardTitle>
+              <CardDescription>
+                Book a free 30-minute call to discuss your project goals and see how we can help.
+              </CardDescription>
             </CardHeader>
-            <CardContent>
-              <a
-                href={`mailto:${site.contact.email}`}
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                {site.contact.email}
-              </a>
+            <CardContent className="relative">
+              <CalendlyButton text="Book a Call" className="w-full" />
             </CardContent>
           </Card>
 
-          <Card>
-            <CardHeader className="pb-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                <Phone className="h-5 w-5" />
+          {/* Request Quote Card */}
+          <Card className="relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-secondary/50 to-transparent" />
+            <CardHeader className="relative">
+              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-secondary text-foreground">
+                <FileText className="h-6 w-6" />
               </div>
-              <CardTitle className="text-base">Phone</CardTitle>
+              <CardTitle className="mt-4">Request a Quote</CardTitle>
+              <CardDescription>
+                Tell us about your project and we&apos;ll send you a detailed proposal.
+              </CardDescription>
             </CardHeader>
-            <CardContent>
-              <a
-                href={`tel:${site.contact.phone}`}
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                {site.contact.phone}
-              </a>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="pb-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                <MapPin className="h-5 w-5" />
-              </div>
-              <CardTitle className="text-base">Location</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                {site.contact.address.city}, {site.contact.address.state}
-              </p>
+            <CardContent className="relative">
+              <Button variant="outline" className="w-full" asChild>
+                <a href="#quote-form">Get a Quote</a>
+              </Button>
             </CardContent>
           </Card>
         </div>
+      </Section>
 
-        {/* Contact Form */}
-        <div className="lg:col-span-2">
-          <Card>
+      {/* Contact Info Section */}
+      <Section className="border-t border-border">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-center text-2xl font-semibold">Contact Information</h2>
+          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+            <Card>
+              <CardHeader className="pb-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <Mail className="h-5 w-5" />
+                </div>
+                <CardTitle className="text-base">Email</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <a
+                  href={`mailto:${site.contact.email}`}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {site.contact.email}
+                </a>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader className="pb-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <Phone className="h-5 w-5" />
+                </div>
+                <CardTitle className="text-base">Phone</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <a
+                  href={`tel:${site.contact.phone}`}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {site.contact.phone}
+                </a>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader className="pb-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <MapPin className="h-5 w-5" />
+                </div>
+                <CardTitle className="text-base">Location</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  {site.contact.address.city}, {site.contact.address.state}
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </Section>
+
+      {/* Quote Form Section */}
+      <Section id="quote-form" className="border-t border-border section-lg">
+        <div className="mx-auto max-w-2xl">
+          <div className="text-center">
+            <h2 className="text-2xl font-semibold">Request a Quote</h2>
+            <p className="mt-3 text-muted-foreground">
+              Tell us about your project and we&apos;ll get back to you with a detailed proposal.
+            </p>
+          </div>
+
+          <Card className="mt-10">
             <CardContent className="pt-6">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid gap-6 sm:grid-cols-2">
@@ -231,43 +274,22 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="grid gap-6 sm:grid-cols-2">
-                  <div>
-                    <label
-                      htmlFor="company"
-                      className="mb-2 block text-sm font-medium"
-                    >
-                      Company
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      className="w-full rounded-md border border-input bg-background px-4 py-2.5 text-sm transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                      placeholder="Acme Inc."
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="type"
-                      className="mb-2 block text-sm font-medium"
-                    >
-                      Inquiry Type
-                    </label>
-                    <select
-                      id="type"
-                      name="type"
-                      value={formData.type}
-                      onChange={handleChange}
-                      className="w-full rounded-md border border-input bg-background px-4 py-2.5 text-sm transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                    >
-                      <option value="consultation">Schedule a Consultation</option>
-                      <option value="quote">Request a Quote</option>
-                    </select>
-                  </div>
+                <div>
+                  <label
+                    htmlFor="company"
+                    className="mb-2 block text-sm font-medium"
+                  >
+                    Company
+                  </label>
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    className="w-full rounded-md border border-input bg-background px-4 py-2.5 text-sm transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                    placeholder="Acme Inc."
+                  />
                 </div>
 
                 <div>
@@ -275,7 +297,7 @@ export default function ContactPage() {
                     htmlFor="message"
                     className="mb-2 block text-sm font-medium"
                   >
-                    Message *
+                    Project Details *
                   </label>
                   <textarea
                     id="message"
@@ -286,7 +308,7 @@ export default function ContactPage() {
                     className={`w-full resize-none rounded-md border bg-background px-4 py-2.5 text-sm transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary ${
                       errors.message ? 'border-destructive' : 'border-input'
                     }`}
-                    placeholder="Tell us about your project..."
+                    placeholder="Describe your project, goals, timeline, and any specific requirements..."
                   />
                   {errors.message && (
                     <p className="mt-1 text-sm text-destructive">
@@ -295,14 +317,14 @@ export default function ContactPage() {
                   )}
                 </div>
 
-                <Button type="submit" size="lg" disabled={isSubmitting}>
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? 'Sending...' : 'Submit Quote Request'}
                 </Button>
               </form>
             </CardContent>
           </Card>
         </div>
-      </div>
-    </Section>
+      </Section>
+    </>
   );
 }
