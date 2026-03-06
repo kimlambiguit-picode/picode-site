@@ -5,17 +5,30 @@ import { CaseStudiesSection } from '@/components/case-studies-section';
 import { TestimonialsSection } from '@/components/testimonials-section';
 import { FAQSection } from '@/components/faq-section';
 import { CTABanner } from '@/components/cta-banner';
+import { ScrollAnimate } from '@/components/scroll-animate';
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <ServicesSection />
-      <ProcessSection />
-      <CaseStudiesSection />
-      <TestimonialsSection />
-      <FAQSection />
-      <CTABanner />
+      <ScrollAnimate>
+        <ServicesSection />
+      </ScrollAnimate>
+      <ScrollAnimate>
+        <ProcessSection />
+      </ScrollAnimate>
+      <ScrollAnimate>
+        <CaseStudiesSection />
+      </ScrollAnimate>
+      <ScrollAnimate>
+        <TestimonialsSection />
+      </ScrollAnimate>
+      <ScrollAnimate>
+        <FAQSection />
+      </ScrollAnimate>
+      <ScrollAnimate>
+        <CTABanner />
+      </ScrollAnimate>
     </>
   );
 }
