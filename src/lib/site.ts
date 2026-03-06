@@ -7,21 +7,19 @@ export const site = {
   ogImage: '/og-image.png',
   
   contact: {
-    email: 'hello@picodesolutions.com',
-    phone: '+1 (555) 123-4567',
+    email: 'info@picodesolutions.com',
+    phone: '+63 917 301 6036',
     address: {
-      street: '123 Innovation Drive',
-      city: 'San Francisco',
-      state: 'CA',
-      zip: '94102',
-      country: 'United States',
+      street: 'San Pedro Street',
+      city: 'Cagayan de Oro City',
+      state: 'Misamis Oriental',
+      zip: '9000',
+      country: 'Philippines',
     },
   },
   
   socials: {
-    linkedin: 'https://linkedin.com/company/picode-solutions',
-    github: 'https://github.com/picode-solutions',
-    twitter: 'https://twitter.com/picodesolutions',
+    linkedin: 'https://www.linkedin.com/company/picode-solutions-philippines',
   },
   
   navigation: {

@@ -33,7 +33,7 @@ export function Footer() {
               >
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a
+              {/* <a
                 href={site.socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -50,7 +50,7 @@ export function Footer() {
                 aria-label="Twitter"
               >
                 <Twitter className="h-5 w-5" />
-              </a>
+              </a> */}
             </div>
           </div>
 
