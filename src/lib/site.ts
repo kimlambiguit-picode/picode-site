@@ -148,15 +148,15 @@ export const site = {
       client: 'Noorana',
       clientContact: 'Tina Patel',
       category: 'Web Application',
-      thumbnail: '/work/noorana-thumb.jpg',
+      thumbnail: '/images/projects/noorana.png',
       projectUrl: 'https://noorana.app',
       challenge:
         'Noorana started as a very basic web app. The client needed to evolve it into a commercial-ready application—without rebuilding from scratch.',
       solution:
         'We took the existing foundation and, within a year, developed it into a production-grade application: improved architecture, new features, and a polished user experience—all while keeping the product live and iterating with the client.',
-      stack: ['React', 'Next.js', 'TypeScript', 'Azure'],
+      stack: ['React', 'Next.js', 'TypeScript', 'MSSQL', '.Net', 'Azure', 'Azure DevOps CI/CD', 'Tailwind CSS'],
       outcomes: [
-        'Commercial-ready in under a year',
+        'Commercial-ready in a year',
         'Ongoing partnership since 2023',
         'Evolved from MVP to full product',
       ],
@@ -168,7 +168,7 @@ export const site = {
       client: 'Ana Reisdorf',
       clientContact: 'Ana Reisdorf',
       category: 'Marketing Website',
-      thumbnail: '/work/ana-reisdorf-thumb.jpg',
+      thumbnail: '/images/projects/anareisdorf.png',
       projectUrl: 'https://www.anareisdorf.com/',
       challenge:
         'A health and wellness writer needed a professional online presence to attract brands and showcase her expertise—positioning “Healthcare to Headlines” for freelance health writers.',

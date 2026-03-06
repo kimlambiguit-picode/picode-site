@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Globe, Cloud, Building2, Workflow, LucideIcon, Check } from 'lucide-react';
 import { site, Service } from '@/lib/site';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import {
   Section,
   SectionHeader,
@@ -9,6 +10,11 @@ import {
   SectionDescription,
 } from '@/components/section';
 import { CTABanner } from '@/components/cta-banner';
+
+// Collect unique technologies from all case studies
+const technologies = Array.from(
+  new Set(site.caseStudies.flatMap((study) => study.stack))
+);
 
 export const metadata: Metadata = {
   title: 'Services',
@@ -72,6 +78,23 @@ export default function ServicesPage() {
         <div className="mt-16 space-y-8">
           {site.services.map((service) => (
             <ServiceDetail key={service.id} service={service} />
+          ))}
+        </div>
+      </Section>
+
+      <Section>
+        <SectionHeader>
+          <SectionTitle>Technologies We Use</SectionTitle>
+          <SectionDescription>
+            The tools and frameworks we&apos;ve used to deliver real projects for our clients.
+          </SectionDescription>
+        </SectionHeader>
+
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          {technologies.map((tech) => (
+            <Badge key={tech} variant="secondary" className="px-4 py-2 text-sm">
+              {tech}
+            </Badge>
           ))}
         </div>
       </Section>

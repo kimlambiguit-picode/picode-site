@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
@@ -72,6 +73,17 @@ export default function CaseStudyPage({ params }: Props) {
               </a>
             </Button>
           )}
+
+          {/* Project Image */}
+          <div className="mt-8 aspect-video relative rounded-lg overflow-hidden border border-border">
+            <Image
+              src={study.thumbnail}
+              alt={study.title}
+              fill
+              className="object-cover object-top"
+              priority
+            />
+          </div>
 
           {/* Outcomes */}
           <div className="mt-8 grid gap-4 rounded-lg border border-border bg-card p-6 sm:grid-cols-3">

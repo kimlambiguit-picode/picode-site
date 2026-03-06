@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { site, CaseStudy } from '@/lib/site';
@@ -22,8 +23,14 @@ function CaseStudyCard({ study }: { study: CaseStudy }) {
   return (
     <Link href={`/work/${study.id}`} className="group block">
       <Card className="h-full overflow-hidden transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5">
-        {/* Placeholder for thumbnail */}
-        <div className="aspect-video bg-secondary/50" />
+        <div className="aspect-video relative bg-secondary/50">
+          <Image
+            src={study.thumbnail}
+            alt={study.title}
+            fill
+            className="object-cover object-top"
+          />
+        </div>
 
         <CardHeader className="pb-3">
           <Badge variant="secondary" className="mb-2 w-fit">
