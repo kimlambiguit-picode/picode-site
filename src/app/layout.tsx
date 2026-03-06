@@ -68,9 +68,7 @@ export default function RootLayout({
                 addressCountry: site.contact.address.country,
               },
               sameAs: [
-                site.socials.linkedin,
-                site.socials.github,
-                site.socials.twitter,
+                site.socials.linkedin
               ],
             }),
           }}
