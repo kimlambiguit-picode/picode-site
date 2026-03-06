@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeft, Check } from 'lucide-react';
+import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { site } from '@/lib/site';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -49,15 +49,29 @@ export default function CaseStudyPage({ params }: Props) {
             </Link>
           </Button>
 
-          <Badge variant="secondary" className="mb-4">
-            {study.category}
-          </Badge>
+          <div className="mb-4 flex flex-wrap items-center gap-2">
+            <Badge variant="secondary">{study.category}</Badge>
+            {study.ongoing && (
+              <Badge variant="outline" className="border-primary/50 text-primary">
+                Ongoing project
+              </Badge>
+            )}
+          </div>
 
           <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
             {study.title}
           </h1>
 
           <p className="mt-2 text-lg text-muted-foreground">{study.client}</p>
+
+          {study.projectUrl && (
+            <Button variant="outline" size="sm" className="mt-4" asChild>
+              <a href={study.projectUrl} target="_blank" rel="noopener noreferrer">
+                Visit live site
+                <ExternalLink className="ml-2 h-4 w-4" />
+              </a>
+            </Button>
+          )}
 
           {/* Outcomes */}
           <div className="mt-8 grid gap-4 rounded-lg border border-border bg-card p-6 sm:grid-cols-3">

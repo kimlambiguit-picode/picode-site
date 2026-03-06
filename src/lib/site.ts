@@ -143,104 +143,69 @@ export const site = {
   
   caseStudies: [
     {
-      id: 'fintech-dashboard',
-      title: 'Real-Time Trading Dashboard',
-      client: 'QuantEdge Capital',
-      category: 'Financial Services',
-      thumbnail: '/work/fintech-thumb.jpg',
+      id: 'noorana',
+      title: 'Noorana',
+      client: 'Noorana',
+      clientContact: 'Tina Patel',
+      category: 'Web Application',
+      thumbnail: '/work/noorana-thumb.jpg',
+      projectUrl: 'https://noorana.app',
       challenge:
-        'A quantitative trading firm needed a real-time dashboard to monitor portfolio positions, risk metrics, and market data across multiple asset classes.',
+        'Noorana started as a very basic web app. The client needed to evolve it into a commercial-ready application—without rebuilding from scratch.',
       solution:
-        'We built a high-performance React dashboard with WebSocket integration, handling 10,000+ data points per second with sub-100ms latency.',
-      stack: ['React', 'Next.js', 'Azure SignalR', 'SQL Server', 'Redis'],
+        'We took the existing foundation and, within a year, developed it into a production-grade application: improved architecture, new features, and a polished user experience—all while keeping the product live and iterating with the client.',
+      stack: ['React', 'Next.js', 'TypeScript', 'Azure'],
       outcomes: [
-        '60% faster decision-making',
-        '99.99% uptime',
-        '10,000+ events/second',
+        'Commercial-ready in under a year',
+        'Ongoing partnership since 2023',
+        'Evolved from MVP to full product',
       ],
+      ongoing: true,
     },
     {
-      id: 'healthcare-platform',
-      title: 'Patient Management Platform',
-      client: 'MedConnect Health',
-      category: 'Healthcare',
-      thumbnail: '/work/healthcare-thumb.jpg',
+      id: 'ana-reisdorf',
+      title: 'Ana Reisdorf | Health Writer',
+      client: 'Ana Reisdorf',
+      clientContact: 'Ana Reisdorf',
+      category: 'Marketing Website',
+      thumbnail: '/work/ana-reisdorf-thumb.jpg',
+      projectUrl: 'https://www.anareisdorf.com/',
       challenge:
-        'A healthcare network needed a HIPAA-compliant platform to manage patient records, appointments, and telehealth consultations across 50+ clinics.',
+        'A health and wellness writer needed a professional online presence to attract brands and showcase her expertise—positioning “Healthcare to Headlines” for freelance health writers.',
       solution:
-        'We delivered a secure, Azure-hosted platform with role-based access, audit logging, and seamless EHR integration.',
-      stack: ['.NET Core', 'Azure App Service', 'Azure SQL', 'React', 'Twilio'],
+        'We designed and built a WordPress site that puts her authority front and center: clear messaging, a Get Started guide, blog, and lead capture—so she can connect with clients and grow her freelance writing business.',
+      stack: ['WordPress', 'PHP', 'Custom theme', 'SEO'],
       outcomes: [
-        '40% reduction in admin time',
-        'HIPAA/SOC2 compliant',
-        '50+ clinics onboarded',
+        'Professional, expert-led positioning',
+        'Blog and lead-generation ready',
+        'Project delivered and live',
       ],
-    },
-    {
-      id: 'logistics-optimization',
-      title: 'Fleet Optimization System',
-      client: 'SwiftRoute Logistics',
-      category: 'Logistics',
-      thumbnail: '/work/logistics-thumb.jpg',
-      challenge:
-        'A logistics company needed to optimize routing for 500+ vehicles while accounting for real-time traffic, delivery windows, and driver schedules.',
-      solution:
-        'We built an intelligent routing engine using Azure Functions and machine learning models, with a driver mobile app and dispatch dashboard.',
-      stack: ['Azure Functions', '.NET', 'Azure Maps', 'React Native', 'PostgreSQL'],
-      outcomes: [
-        '25% fuel cost reduction',
-        '18% more deliveries/day',
-        '500+ vehicles optimized',
-      ],
-    },
-    {
-      id: 'saas-platform',
-      title: 'Multi-Tenant SaaS Platform',
-      client: 'DataSync Pro',
-      category: 'Technology',
-      thumbnail: '/work/saas-thumb.jpg',
-      challenge:
-        'A startup needed to launch a B2B data integration platform supporting hundreds of tenants with isolated data, custom workflows, and usage-based billing.',
-      solution:
-        'We architected a multi-tenant platform on Azure with tenant isolation, a visual workflow builder, and Stripe integration for metered billing.',
-      stack: ['Next.js', '.NET Core', 'Azure Cosmos DB', 'Stripe', 'Azure AD B2C'],
-      outcomes: [
-        '200+ enterprise customers',
-        '$2M ARR in year one',
-        '99.95% platform uptime',
-      ],
+      ongoing: false,
     },
   ],
   
   testimonials: [
     {
       quote:
-        'PiCode delivered exactly what we needed—on time and on budget. Their technical depth and communication made them feel like an extension of our team.',
-      author: 'Sarah Chen',
-      role: 'CTO',
-      company: 'QuantEdge Capital',
+        'We didn\'t start from scratch—we had a basic web app. PiCode took it and within a year turned it into something we could actually run as a business. They feel like part of the team.',
+      author: 'Tina Patel',
+      role: 'Owner',
+      company: 'Noorana',
     },
     {
       quote:
-        'The platform they built has transformed how we operate. Patient satisfaction scores are up 35% since launch.',
-      author: 'Dr. Michael Torres',
-      role: 'Chief Medical Officer',
-      company: 'MedConnect Health',
-    },
-    {
-      quote:
-        'We evaluated several agencies, but PiCode stood out with their Azure expertise and enterprise mindset. They genuinely understood our scale.',
-      author: 'Jennifer Park',
-      role: 'VP of Engineering',
-      company: 'DataSync Pro',
+        'I needed a site that looked professional and helped me attract the right clients. PiCode built exactly that—clear, on-brand, and easy for me to manage. Very happy with the result.',
+      author: 'Ana Reisdorf',
+      role: 'Health Writer',
+      company: 'anareisdorf.com',
     },
   ],
   
   stats: [
-    { value: '50+', label: 'Projects Delivered' },
+    { value: '2', label: 'Projects Delivered' },
     { value: '99.9%', label: 'Uptime Average' },
-    { value: '8+', label: 'Years Experience' },
-    { value: '4.9/5', label: 'Client Rating' },
+    { value: '2+', label: 'Years in Production' },
+    { value: 'Ongoing', label: 'Noorana Partnership' },
   ],
   
   faqs: [
@@ -272,7 +237,7 @@ export const site = {
     {
       question: 'What industries do you serve?',
       answer:
-        'We have deep experience in financial services, healthcare, logistics, and B2B SaaS. That said, we evaluate every opportunity based on technical fit and alignment with our expertise.',
+        'We work across industries—from product companies (e.g. Noorana) to professional services and marketing sites (e.g. anareisdorf.com). We evaluate each opportunity based on technical fit and whether we can deliver real outcomes.',
     },
   ],
   
@@ -280,7 +245,7 @@ export const site = {
     mission:
       'We exist to help ambitious companies build software that drives real business outcomes—not just code that checks boxes.',
     story:
-      'Founded in 2016, PiCode Solutions started with a simple thesis: enterprise-grade software shouldn\'t require enterprise-grade budgets or timelines. We\'ve since partnered with 50+ organizations, from funded startups to Fortune 500 companies, delivering solutions that scale.',
+      'PiCode Solutions focuses on turning ideas and early-stage products into commercial-ready software. We\'ve taken a basic web app and grown it into a production application (Noorana, ongoing since 2023), and delivered a polished WordPress presence for a health writer. We work in the Microsoft stack and modern web—Azure, .NET, React, Next.js—with precision and partnership.',
     values: [
       {
         title: 'Precision Over Speed',
