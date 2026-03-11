@@ -19,7 +19,7 @@ function generateEmailHtml({ name, email, company, type, message }: {
   <div style="background-color: #ffffff; border-radius: 8px; padding: 32px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
     <div style="border-bottom: 1px solid #e2e8f0; padding-bottom: 24px; margin-bottom: 24px;">
       <h1 style="margin: 0; font-size: 24px; font-weight: 600; color: #0f172a;">New ${type || 'Contact'} Request</h1>
-      <p style="margin: 8px 0 0; font-size: 14px; color: #64748b;">Submitted via picode.com.au</p>
+      <p style="margin: 8px 0 0; font-size: 14px; color: #64748b;">Submitted via picodesolutions.com</p>
     </div>
     
     <div style="margin-bottom: 24px;">

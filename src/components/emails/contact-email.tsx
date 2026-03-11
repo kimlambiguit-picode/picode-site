@@ -40,7 +40,7 @@ export function ContactEmailTemplate({
             New {type || 'Contact'} Request
           </h1>
           <p style={{ margin: '8px 0 0', fontSize: '14px', color: '#64748b' }}>
-            Submitted via picode.com.au
+            Submitted via picodesolutions.com 
           </p>
         </div>
 
